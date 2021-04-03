@@ -63,7 +63,7 @@
      * @return {Boolean} 
      */
     const is_string = (el) => {
-        return typeof el === 'string'
+        return typeof el === 'string' || el instanceof String
     }
     exports.is_string = is_string
 
@@ -175,6 +175,69 @@
      * ========================================================
      */
 
+    /**
+     * 
+     * @param {Array} arr 
+     * @return {Array}
+     */
+    const array_pop = (arr) => {
+        let elt = null
+        if (is_array(arr)) {
+            elt = arr.pop()
+        }
+
+        return elt ? [elt, arr] : [arr]
+    }
+    exports.array_pop = array_pop
+
+    /**
+     * 
+     * @param {Array} arr 
+     * @param {*} val 
+     * @return {Array} 
+     */
+    const array_push = (arr, val) => {
+        let args = Array.prototype.slice.call(arguments);
+        arr = args.shift()
+
+        if (is_array(arr)) {
+            arr.push(...args)
+        }
+        return arr
+    }
+    exports.array_push = array_push
+
+    /**
+     * 
+     * @param {Array} arr 
+     * @return {Array}
+     */
+    const array_shift = (arr) => {
+        let elt = null
+        if (is_array(arr)) {
+            elt = arr.shift()
+        }
+
+        return elt ? [elt, arr] : [arr]
+    }
+    exports.array_shift = array_shift
+
+    /**
+     * 
+     * @param {Array} arr 
+     * @param {*} val 
+     * @return {Array} 
+     */
+    const array_unshift = (arr, val) => {
+        let args = Array.prototype.slice.call(arguments);
+        arr = args.shift()
+
+        if (is_array(arr)) {
+            arr.unshift(...args)
+        }
+        return arr
+    }
+    exports.array_unshift = array_unshift
 
     /**
      * 
@@ -209,12 +272,12 @@
      * @return {Boolean} 
      */
     const is_array = (el) => {
-        return Array.isArray(el)
+        return Array.isArray(el) || el instanceof Array
     }
     exports.is_string = is_array
 
     const is_object = (el) => {
-        return typeof el === 'object'
+        return typeof el === 'object' || el instanceof Object
     }
     exports.is_object = is_object
 
