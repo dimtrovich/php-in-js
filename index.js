@@ -136,17 +136,18 @@
 
     /**
      * 
-     * @param {String} string 
+     * @param {String} str 
      * @param {Integer} size 
      * @param {*} value 
      * @return {String} 
      */
-    const str_pad = (string, size, value) => {
-        for (let i = 0; i < size; i++) {
-            string += value;
+    const str_pad = (str, size, value) => {
+        if (is_string(str)) {
+            for (let i = 0; i < size; i++) {
+                str += value;
+            }
         }
-
-        return string;
+        return str;
     }
     exports.str_pad = str_pad
 
@@ -169,9 +170,57 @@
      * @return {String} 
      */
     const strrev = (str) => {
-        return str.split('').reverse().join('')
+        if (is_string(str)) {
+            /*
+             * Ancienne version, mais ne marche pas avec les caracteres unicode
+             * return str.split('').reverse().join('')
+             */
+
+            /**
+             * @credit https://github.com/mathiasbynens/esrever 
+             */
+            str = str.replace(/(<%= allExceptCombiningMarks %>)(<%= combiningMarks %>+)/g, ($0, $1, $2) => {
+                return strrev($2) + $1;
+            }).replace(/([\uD800-\uDBFF])([\uDC00-\uDFFF])/g, '$2$1')
+
+            let result = [],
+                index = str.length;
+
+            while (index--) {
+                result.push(str.charAt(index));
+            }
+
+            return result.join('');
+        }
+        return str
     }
     exports.strrev = strrev
+
+    /**
+     * 
+     * @param {String} str 
+     * @return {String} 
+     */
+    const strtolower = (str) => {
+        if (is_string(str)) {
+            return str.toLowerCase()
+        }
+        return str
+    }
+    exports.strtolower = strtolower
+
+    /**
+     * 
+     * @param {String} str 
+     * @return {String} 
+     */
+    const strtoupper = (str) => {
+        if (is_string(str)) {
+            return str.toUpperCase()
+        }
+        return str
+    }
+    exports.strtoupper = strtoupper
 
     /**
      * 
