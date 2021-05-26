@@ -49,6 +49,45 @@
     }
     exports.is_callable = is_callable
 
+    /**
+     *
+     * @param {*} el
+     * @return {Boolean}
+     */
+    const is_bool = (el) => {
+        if (el === true || el === false || typeof el === 'boolean') {
+            return true
+        }
+        if (toString.call(el) === '[object Boolean]') {
+            return true
+        }
+        if (typeof el === 'object' && el !== null && typeof el.valueOf() === 'boolean') {
+            return true
+        }
+        return false
+    }
+    exports.is_bool = is_bool
+
+    /**
+     *
+     * @param {String} prefix
+     * @param {Boolean} random
+     * @return {String}
+     */
+    const uniqid = (prefix, random) => {
+        if (empty(prefix) || !is_string(prefix)) {
+            prefix = ''
+        }
+        if (empty(random) || !is_bool(random)) {
+            random = false
+        }
+        const sec = Date.now() * 1000 + Math.random() * 1000,
+            id = sec.toString(16).replace(/\./g, "").padEnd(14, "0")
+
+        return prefix + id + (!random ? '' : '.' + Math.trunc(Math.random() * 100000000))
+    }
+    exports.uniqid = uniqid
+
 
     /**
      * ========================================================
@@ -258,7 +297,6 @@
      * ---------------- MANIPULATION DE NOMBRES ----------------
      * ========================================================
      */
-
 
     /**
      *
