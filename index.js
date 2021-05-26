@@ -91,6 +91,23 @@
 
     /**
      * ========================================================
+     * ------------- MANIPULATION DES DATES/HEURES -------------
+     * ========================================================
+     */
+
+
+    /**
+     *
+     * @return {Integer}
+     */
+    const time = () => {
+        return Math.floor(new Date().getTime() / 1000)
+    }
+    exports.time = time
+
+
+    /**
+     * ========================================================
      * --------- MANIPULATION DE CHAINES DE CARACTERES --------
      * ========================================================
      */
@@ -317,6 +334,24 @@
         return !isNaN(parseFloat(el)) && isFinite(el)
     }
     exports.is_number = is_number
+
+    /**
+     *
+     * @param {Number} min
+     * @param {Number} max
+     * @return {Integer}
+     */
+    const rand = (min, max) => {
+        const argc = arguments.length
+        if (argc === 0) {
+            min = 0
+            max = 2147483647
+        } else if (argc === 1) {
+            throw new Error('Warning: rand() expects exactly 2 parameters, 1 given')
+        }
+        return Math.floor(Math.random() * (max - min + 1)) + min
+    }
+    exports.rand = rand
 
 
     /**
@@ -803,5 +838,45 @@
         return range;
     }
     exports.range = range
+
+
+    /**
+     * ========================================================
+     * --------------- EXPRESSIONS REGULIERES -----------------
+     * ========================================================
+     */
+
+    /**
+     *
+     * @param {*} regex
+     * @param {String} str
+     * @return {Boolean}
+     */
+    const preg_match = (regex, str) => { // eslint-disable-line camelcase
+        //   original by: Muhammad Humayun (https://github.com/ronypt)
+        return (new RegExp(regex).test(str))
+    }
+    exports.preg_match = preg_match
+
+    /**
+     *
+     * @param {*} pattern
+     * @param {String} replacement
+     * @param {String} string
+     * @return {String}
+     */
+    const preg_replace = (pattern, replacement, string) => { // eslint-disable-line camelcase
+        //   original by: rony2k6 (https://github.com/rony2k6)
+
+        let _flag = pattern.substr(pattern.lastIndexOf(pattern[0]) + 1)
+        _flag = (_flag !== '') ? _flag : 'g'
+
+        const _pattern = pattern.substr(1, pattern.lastIndexOf(pattern[0]) - 1),
+            regex = new RegExp(_pattern, _flag),
+            result = string.replace(regex, replacement)
+
+        return result
+    }
+    exports.preg_replace = preg_replace
 
 })))
