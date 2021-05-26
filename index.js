@@ -12,15 +12,15 @@
 
     /**
      * ========================================================
-     * ------------------ FONCTIONS GLOBALES ------------------ 
+     * ------------------ FONCTIONS GLOBALES ------------------
      * ========================================================
      */
 
 
     /**
-     * 
+     *
      * @param {*} el
-     * @return {Boolean} 
+     * @return {Boolean}
      */
     const empty = (el) => {
         if (typeof el === 'undefined' || el === null) {
@@ -40,9 +40,9 @@
     exports.empty = empty
 
     /**
-     * 
+     *
      * @param {*} el
-     * @return {Boolean} 
+     * @return {Boolean}
      */
     const is_callable = (el) => {
         return typeof el === 'function'
@@ -52,7 +52,7 @@
 
     /**
      * ========================================================
-     * --------- MANIPULATION DE CHAINES DE CARACTERES -------- 
+     * --------- MANIPULATION DE CHAINES DE CARACTERES --------
      * ========================================================
      */
 
@@ -72,9 +72,9 @@
     exports.chunk_split = chunk_split
 
     /**
-     * 
+     *
      * @param {*} el
-     * @return {Boolean} 
+     * @return {Boolean}
      */
     const is_string = (el) => {
         return typeof el === 'string' || el instanceof String
@@ -82,9 +82,9 @@
     exports.is_string = is_string
 
     /**
-     * 
+     *
      * @param {String} str
-     * @return {String} 
+     * @return {String}
      */
     const lcfirst = (str) => {
         if (is_string(str)) {
@@ -95,9 +95,9 @@
     exports.lcfirst = lcfirst
 
     /**
-     * 
+     *
      * @param {String} str
-     * @return {String} 
+     * @return {String}
      */
     const lcwords = (str) => {
         if (is_string(str)) {
@@ -112,10 +112,10 @@
     exports.lcwords = lcwords
 
     /**
-     * 
-     * @param {String} str1 
-     * @param {String} str2 
-     * @return {Integer} 
+     *
+     * @param {String} str1
+     * @param {String} str2
+     * @return {Integer}
      */
     const similar_text = (str1, str2) => {
         let seen = {},
@@ -135,11 +135,11 @@
     exports.similar_text = similar_text
 
     /**
-     * 
-     * @param {String} str 
-     * @param {Integer} size 
-     * @param {*} value 
-     * @return {String} 
+     *
+     * @param {String} str
+     * @param {Integer} size
+     * @param {*} value
+     * @return {String}
      */
     const str_pad = (str, size, value) => {
         if (is_string(str)) {
@@ -152,9 +152,9 @@
     exports.str_pad = str_pad
 
     /**
-     * 
+     *
      * @param {String} str
-     * @return {Integer|null} 
+     * @return {Integer|null}
      */
     const strlen = (str) => {
         if (is_string(str)) {
@@ -165,9 +165,9 @@
     exports.strlen = strlen
 
     /**
-     * 
-     * @param {String} str 
-     * @return {String} 
+     *
+     * @param {String} str
+     * @return {String}
      */
     const strrev = (str) => {
         if (is_string(str)) {
@@ -177,7 +177,7 @@
              */
 
             /**
-             * @credit https://github.com/mathiasbynens/esrever 
+             * @credit https://github.com/mathiasbynens/esrever
              */
             str = str.replace(/(<%= allExceptCombiningMarks %>)(<%= combiningMarks %>+)/g, ($0, $1, $2) => {
                 return strrev($2) + $1;
@@ -197,9 +197,9 @@
     exports.strrev = strrev
 
     /**
-     * 
-     * @param {String} str 
-     * @return {String} 
+     *
+     * @param {String} str
+     * @return {String}
      */
     const strtolower = (str) => {
         if (is_string(str)) {
@@ -210,9 +210,9 @@
     exports.strtolower = strtolower
 
     /**
-     * 
-     * @param {String} str 
-     * @return {String} 
+     *
+     * @param {String} str
+     * @return {String}
      */
     const strtoupper = (str) => {
         if (is_string(str)) {
@@ -223,9 +223,9 @@
     exports.strtoupper = strtoupper
 
     /**
-     * 
+     *
      * @param {String} str
-     * @return {String} 
+     * @return {String}
      */
     const ucfirst = (str) => {
         if (is_string(str)) {
@@ -236,9 +236,9 @@
     exports.ucfirst = ucfirst
 
     /**
-     * 
+     *
      * @param {String} str
-     * @return {String} 
+     * @return {String}
      */
     const ucwords = (str) => {
         if (is_string(str)) {
@@ -255,13 +255,13 @@
 
     /**
      * ========================================================
-     * ---------------- MANIPULATION DE NOMBRES ---------------- 
+     * ---------------- MANIPULATION DE NOMBRES ----------------
      * ========================================================
      */
 
 
     /**
-     * 
+     *
      * @param {*} el
      * @return {Boolean}
      */
@@ -271,9 +271,9 @@
     exports.is_int = is_int
 
     /**
-     * 
+     *
      * @param {*} el
-     * @return {Boolean} 
+     * @return {Boolean}
      */
     const is_number = (el) => {
         return !isNaN(parseFloat(el)) && isFinite(el)
@@ -283,14 +283,14 @@
 
     /**
      * ========================================================
-     * --------------- MANIPULATION DE TABLEAUX --------------- 
+     * --------------- MANIPULATION DE TABLEAUX ---------------
      * ========================================================
      */
 
     /**
-     * 
-     * @param {Array} arr 
-     * @param {Integer} count 
+     *
+     * @param {Array} arr
+     * @param {Integer} count
      * @return {Array}
      */
     const array_chunk = (arr, count) => {
@@ -313,9 +313,9 @@
     exports.array_chunk = array_chunk
 
     /**
-     * 
-     * @param  {...Array} arrays 
-     * @returns 
+     *
+     * @param  {...Array} arrays
+     * @returns
      */
     const array_collapse = (...arrays) => {
         let collapse_arr = []
@@ -331,9 +331,9 @@
     exports.array_collapse = array_collapse
 
     /**
-     * 
-     * @param {Array} arr1 
-     * @param {Array} arr2 
+     *
+     * @param {Array} arr1
+     * @param {Array} arr2
      * @return {Array}
      */
     const array_diff = (arr1, arr2) => {
@@ -349,9 +349,9 @@
     exports.array_diff = array_diff
 
     /**
-     * 
-     * @param {Array} arr1 
-     * @param {Array} arr2 
+     *
+     * @param {Array} arr1
+     * @param {Array} arr2
      * @return {Array}
      */
     const array_intersect = (arr1, arr2) => {
@@ -367,10 +367,10 @@
     exports.array_intersect = array_intersect
 
     /**
-     * 
-     * @param {Array} arr 
-     * @param {Callable} func 
-     * @return {Array} 
+     *
+     * @param {Array} arr
+     * @param {Callable} func
+     * @return {Array}
      */
     const array_map = (arr, func) => {
         let temp_arr = []
@@ -387,7 +387,7 @@
     exports.array_map = array_map
 
     /**
-     * 
+     *
      * @param {...Array}
      * @return {Array}
      */
@@ -406,11 +406,11 @@
     exports.array_merge = array_merge
 
     /**
-     * 
-     * @param {Array} arr 
-     * @param {Integer} size 
-     * @param {*} value 
-     * @return {Array} 
+     *
+     * @param {Array} arr
+     * @param {Integer} size
+     * @param {*} value
+     * @return {Array}
      */
     const array_pad = (arr, size, value) => {
         if (!is_array(arr)) {
@@ -424,8 +424,8 @@
     exports.array_pad = array_pad
 
     /**
-     * 
-     * @param {Array} arr 
+     *
+     * @param {Array} arr
      * @return {Array}
      */
     const array_pop = (arr) => {
@@ -439,10 +439,10 @@
     exports.array_pop = array_pop
 
     /**
-     * 
-     * @param {Array} arr 
-     * @param {*} val 
-     * @return {Array} 
+     *
+     * @param {Array} arr
+     * @param {*} val
+     * @return {Array}
      */
     const array_push = (arr, val) => {
         let args = Array.prototype.slice.call(arguments);
@@ -456,9 +456,9 @@
     exports.array_push = array_push
 
     /**
-     * 
-     * @param {Array} arr 
-     * @param {Callable} func 
+     *
+     * @param {Array} arr
+     * @param {Callable} func
      * @return {Array}
      */
     const array_reject = (arr, func) => {
@@ -478,8 +478,8 @@
     exports.array_reject = array_reject
 
     /**
-     * 
-     * @param {Array} arr 
+     *
+     * @param {Array} arr
      * @return {Array}
      */
     const array_shift = (arr) => {
@@ -493,10 +493,10 @@
     exports.array_shift = array_shift
 
     /**
-     * 
-     * @param {Array} arr 
-     * @param {Integer} count 
-     * @return {Array} 
+     *
+     * @param {Array} arr
+     * @param {Integer} count
+     * @return {Array}
      */
     const array_split = (arr, count) => {
         let temp_arr = [],
@@ -526,9 +526,9 @@
     exports.array_split = array_split
 
     /**
-     * 
-     * @param {Array} arr 
-     * @param {Integer} count 
+     *
+     * @param {Array} arr
+     * @param {Integer} count
      * @return {Array}
      */
     const array_take = (arr, count) => {
@@ -550,8 +550,8 @@
     exports.array_take = array_take
 
     /**
-     * 
-     * @param {Array} arr 
+     *
+     * @param {Array} arr
      * @return {Array}
      */
     const array_unique = (arr) => {
@@ -586,10 +586,10 @@
     exports.array_unique = array_unique
 
     /**
-     * 
-     * @param {Array} arr 
-     * @param {*} val 
-     * @return {Array} 
+     *
+     * @param {Array} arr
+     * @param {*} val
+     * @return {Array}
      */
     const array_unshift = (arr, val) => {
         let args = Array.prototype.slice.call(arguments);
@@ -603,7 +603,7 @@
     exports.array_unshift = array_unshift
 
     /**
-     * 
+     *
      * @param {Array} arr
      * @return {Integer|null}
      */
@@ -616,10 +616,10 @@
     exports.count = count
 
     /**
-     * 
-     * @param {String} delimiter 
-     * @param {String} str 
-     * @return {Array} 
+     *
+     * @param {String} delimiter
+     * @param {String} str
+     * @return {Array}
      */
     const explode = (delimiter, str) => {
         if (is_string(str)) {
@@ -630,10 +630,10 @@
     exports.explode = explode
 
     /**
-     * 
-     * @param {String} delimiter 
-     * @param {Array} arr 
-     * @return {String} 
+     *
+     * @param {String} delimiter
+     * @param {Array} arr
+     * @return {String}
      */
     const implode = (delimiter, arr) => {
         if (is_array(arr)) {
@@ -644,10 +644,10 @@
     exports.implode = implode
 
     /**
-     * 
-     * @param {*} el 
+     *
+     * @param {*} el
      * @param {Array} arr
-     * @return {Boolean} 
+     * @return {Boolean}
      */
     const in_array = (el, arr) => {
         if (is_array(arr)) {
@@ -658,9 +658,9 @@
     exports.in_array = in_array
 
     /**
-     * 
+     *
      * @param {*} el
-     * @return {Boolean} 
+     * @return {Boolean}
      */
     const is_array = (el) => {
         return Array.isArray(el) || el instanceof Array
@@ -673,9 +673,9 @@
     exports.is_object = is_object
 
     /**
-     * 
+     *
      * @param {*} data
-     * @return {String} 
+     * @return {String}
      */
     const json_encode = (data) => {
         return JSON.stringify(data)
@@ -683,9 +683,9 @@
     exports.json_encode = json_encode
 
     /**
-     * 
+     *
      * @param {String} str
-     * @return {Object} 
+     * @return {Object}
      */
     const json_decode = (str) => {
         if (is_string(str)) {
@@ -695,14 +695,74 @@
     }
     exports.json_decode = json_decode
 
-    const range = (start, end) => {
-        let temp_arr = []
+    /**
+     * Creates an array containing a range of values.
+     *
+     * @param   {Number|String} low The starting value for the range.
+     * @param   {Number|String} high The ending value for the range.
+     * @param   {Number} [step] If provided, <code>step</code> will be the increment between values in the range.
+     *          If not provided, <code>step</code> defaults to 1. <code>step</code> will be converted to a positive number.
+     * @return  {Array} Returns an array of values between <code>low</code> and <code>high</code>.
+     *                  If <code>low</code> is greater than <code>high</code>, the range will be
+     *                  from <code>high</code> to <code>low</code>. The range will include the values
+     *                  represented by <code>low</code> and <code>high</code>.
+     * @credit https://gist.github.com/mzabriskie/6513968
+     */
+    const range = (low, high, step) => {
+        let range = [],
+            start, end,
+            charCode = false,
+            reverse = false
 
-        for (let i = start; i <= end; i++) {
-            temp_arr.push(i)
+        // If no step was provided default to 1
+        step = isNaN(parseInt(step, 10)) ? 1 : Math.abs(step);
+
+        // If either low or high is a number, then both low and high must be numbers
+        if (!isNaN(parseInt(low, 10)) && isNaN(parseInt(high, 10))) {
+            high = 0
+        } else if (!isNaN(parseInt(high, 10)) && isNaN(parseInt(low, 10))) {
+            low = 0
         }
 
-        return temp_arr
+        // If both low and high are numbers then create a numeric range
+        if (!isNaN(parseInt(low, 10)) && !isNaN(parseInt(high, 10))) {
+            low = parseInt(low, 10)
+            high = parseInt(high, 10)
+        }
+        // If both low and high are strings then create a character range
+        else if (typeof low === 'string' && typeof high === 'string') {
+            low = low.charCodeAt(0)
+            high = high.charCodeAt(0)
+            charCode = true
+        }
+
+        // If low and high range values were able to be parsed, create the range
+        if (typeof low === 'number' && typeof high === 'number') {
+            // Range will need to be reversed if low is greater than high
+            reverse = low > high
+
+            // Calculate the start and end points of the range
+            start = Math.min(low, high)
+            end = Math.max(low, high)
+
+            // Verify that step is within the bounds of the range
+            if (end - start > 0 && step > end - start) {
+                throw new Error('step exceeds the specified range')
+            }
+
+            // Generate the range
+            for (let i = start; i <= end; i += step) {
+                range[range.length] = charCode ? String.fromCharCode(i) : i
+            }
+
+            // Reverse the range if needed
+            if (reverse) {
+                range.reverse()
+            }
+        }
+
+        // Return the range
+        return range;
     }
     exports.range = range
 
