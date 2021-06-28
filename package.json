@@ -1,6 +1,6 @@
 {
     "name": "php-in-js",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "A simple adaptation of php functions for javascript",
     "main": "index.js",
     "scripts": {
@@ -16,7 +16,7 @@
         "js",
         "php-i-js"
     ],
-    "author": "Dimitri Sitchet <dev.dst@gmail.com>",
+    "author": "Dimitri Sitchet <devcode.dst@gmail.com>",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/DimitriSitchet/php-in-js/issues"

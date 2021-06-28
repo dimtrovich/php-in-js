@@ -98,15 +98,6 @@
 
     /**
      *
-     * @return {Integer}
-     */
-    const time = () => {
-        return Math.floor(new Date().getTime() / 1000)
-    }
-    exports.time = time
-
-    /**
-     *
      * @param {String} format
      * @param {Integer} timestamp
      * @return {String}
@@ -363,6 +354,15 @@
         return _date(format, timestamp)
     }
     exports.date = date
+
+    /**
+     *
+     * @return {Integer}
+     */
+    const time = () => {
+        return Math.floor(new Date().getTime() / 1000)
+    }
+    exports.time = time
 
 
     /**
@@ -786,6 +786,28 @@
         return arr
     }
     exports.array_push = array_push
+
+    /**
+     * @param {Array} array
+     * @param {Number} num
+     * @return
+     */
+    const array_rand = (array, num) => {
+        let keys = Object.keys(array)
+        if (typeof num === 'undefined' || num === null) {
+            num = 1
+        } else {
+            num = +num
+        }
+        if (isNaN(num) || num < 1 || num > keys.length) {
+            return null
+        }
+
+        keys = array_suffle(keys)
+
+        return num === 1 ? keys[0] : keys.slice(0, num)
+    }
+    exports.array_rand = array_rand
 
     /**
      *
