@@ -601,6 +601,25 @@
     /**
      *
      * @param {Array} arr
+     * @return {Array}
+     */
+    const array_suffle = (arr) => {
+        if (is_array(arr)) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1)),
+                    tmp = arr[i]
+
+                arr[i] = arr[j];
+                arr[j] = tmp;
+            }
+        }
+        return arr
+    }
+    exports.array_suffle = array_suffle
+
+    /**
+     *
+     * @param {Array} arr
      * @param {Integer} count
      * @return {Array}
      */
