@@ -1,8 +1,8 @@
 {
     "name": "php-in-js",
-    "version": "0.1.5",
+    "version": "1.0.0",
     "description": "A simple adaptation of php functions for javascript",
-    "main": "index.js",
+    "main": "es6.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
