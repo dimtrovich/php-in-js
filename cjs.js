@@ -35,8 +35,8 @@ const modules = {
 };
 let pij = {};
 
-for (key in modules) {
-	for (func in modules[key]) {
+for (let key in modules) {
+	for (let func in modules[key]) {
 		pij[func] = modules[key][func];
 	}
 }
