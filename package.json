@@ -1,6 +1,6 @@
 {
     "name": "php-in-js",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A simple adaptation of php functions for javascript",
     "main": "es6.js",
     "scripts": {

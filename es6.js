@@ -5,7 +5,6 @@
  */
 
 import array from './modules/array.js';
-
 import crypto from './modules/crypto.js';
 import datetime from './modules/datetime.js';
 import fs from './modules/fs.js';
