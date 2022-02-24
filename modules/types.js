@@ -14,31 +14,31 @@
     'use strict';
 
 	const empty = function (mixed_var) {
-	var undef, key, i, len;
-	  var emptyValues = [undef, null, false, 0, '', '0'];
+		var undef, key, i, len;
+	  	var emptyValues = [undef, null, false, 0, '', '0'];
 
-	  for (i = 0, len = emptyValues.length; i < len; i++) {
-		if (mixed_var === emptyValues[i]) {
-		  return true;
-		}
-	  }
+	  	for (i = 0, len = emptyValues.length; i < len; i++) {
+			if (mixed_var === emptyValues[i]) {
+				return true;
+			}
+	  	}
 
-	  if (typeof mixed_var === 'object') {
-		for (key in mixed_var) {
-		  // TODO: should we check for own properties only?
-		  //if (mixed_var.hasOwnProperty(key)) {
-		  return false;
-		  //}
-		}
-		return true;
-	  }
+	  	if (typeof mixed_var === 'object') {
+			for (key in mixed_var) {
+				// TODO: should we check for own properties only?
+				//if (mixed_var.hasOwnProperty(key)) {
+					return false;
+				//}
+			}
+			return true;
+	  	}
 
-	  return false;
+	  	return false;
   	};
 	exports.empty = empty
 
   	const floatval = function (mixed_var) {
-	return (parseFloat(mixed_var) || 0);
+		return (parseFloat(mixed_var) || 0);
   	};
 	exports.floatval = floatval;
 
@@ -102,63 +102,62 @@
 	exports.intval = intval;
 
   	const is_array = function (mixed_var) {
-	var ini,
-		_getFuncName = function(fn) {
-		  var name = (/\W*function\s+([\w\$]+)\s*\(/)
-			.exec(fn);
-		  if (!name) {
-			return '(Anonymous)';
-		  }
-		  return name[1];
-		},
-	  _isArray = function(mixed_var) {
-		// return Object.prototype.toString.call(mixed_var) === '[object Array]';
-		// The above works, but let's do the even more stringent approach: (since Object.prototype.toString could be overridden)
-		// Null, Not an object, no length property so couldn't be an Array (or String)
-		if (!mixed_var || typeof mixed_var !== 'object' || typeof mixed_var.length !== 'number') {
-		  return false;
-		}
-		var len = mixed_var.length;
-		mixed_var[mixed_var.length] = 'bogus';
-		// The only way I can think of to get around this (or where there would be trouble) would be to have an object defined
-		// with a custom "length" getter which changed behavior on each call (or a setter to mess up the following below) or a custom
-		// setter for numeric properties, but even that would need to listen for specific indexes; but there should be no false negatives
-		// and such a false positive would need to rely on later JavaScript innovations like __defineSetter__
-		if (len !== mixed_var.length) { // We know it's an array since length auto-changed with the addition of a
-		  // numeric property at its length end, so safely get rid of our bogus element
-		  mixed_var.length -= 1;
-		  return true;
-		}
-		// Get rid of the property we added onto a non-array object; only possible
-		// side-effect is if the user adds back the property later, it will iterate
-		// this property in the older order placement in IE (an order which should not
-		// be depended on anyways)
-		delete mixed_var[mixed_var.length];
-		return false;
-	  };
+		var ini,
+			_getFuncName = function(fn) {
+		  		var name = (/\W*function\s+([\w\$]+)\s*\(/).exec(fn);
+				if (!name) {
+					return '(Anonymous)';
+				}
+				return name[1];
+			},
+	  		_isArray = function(mixed_var) {
+				// return Object.prototype.toString.call(mixed_var) === '[object Array]';
+				// The above works, but let's do the even more stringent approach: (since Object.prototype.toString could be overridden)
+				// Null, Not an object, no length property so couldn't be an Array (or String)
+				if (!mixed_var || typeof mixed_var !== 'object' || typeof mixed_var.length !== 'number') {
+					return false;
+				}
+				var len = mixed_var.length;
+				mixed_var[mixed_var.length] = 'bogus';
+				// The only way I can think of to get around this (or where there would be trouble) would be to have an object defined
+				// with a custom "length" getter which changed behavior on each call (or a setter to mess up the following below) or a custom
+				// setter for numeric properties, but even that would need to listen for specific indexes; but there should be no false negatives
+				// and such a false positive would need to rely on later JavaScript innovations like __defineSetter__
+				if (len !== mixed_var.length) { // We know it's an array since length auto-changed with the addition of a
+					// numeric property at its length end, so safely get rid of our bogus element
+					mixed_var.length -= 1;
+					return true;
+				}
+				// Get rid of the property we added onto a non-array object; only possible
+				// side-effect is if the user adds back the property later, it will iterate
+				// this property in the older order placement in IE (an order which should not
+				// be depended on anyways)
+				delete mixed_var[mixed_var.length];
+				return false;
+	  		};
 
-	  if (!mixed_var || typeof mixed_var !== 'object') {
-		return false;
-	  }
+			if (!mixed_var || typeof mixed_var !== 'object') {
+				return false;
+			}
 
-	  // BEGIN REDUNDANT
-	  this.php_js = this.php_js || {};
-	  this.php_js.ini = this.php_js.ini || {};
-	  // END REDUNDANT
+			// BEGIN REDUNDANT
+					this.php_js = this.php_js || {};
+			this.php_js.ini = this.php_js.ini || {};
+			// END REDUNDANT
 
-	  ini = this.php_js.ini['phpjs.objectsAsArrays'];
+	  		ini = this.php_js.ini['phpjs.objectsAsArrays'];
 
-	  return _isArray(mixed_var) ||
-	  // Allow returning true unless user has called
-	  // ini_set('phpjs.objectsAsArrays', 0) to disallow objects as arrays
-	  ((!ini || ( // if it's not set to 0 and it's not 'off', check for objects as arrays
-		(parseInt(ini.local_value, 10) !== 0 && (!ini.local_value.toLowerCase || ini.local_value.toLowerCase() !==
-		  'off')))) && (
-		(Object.prototype.toString.call(mixed_var) === '[object Object]' && _getFuncName(mixed_var.constructor) ===
-		'Object') // Most likely a literal and intended as assoc. array
-	  ));
-  	};
-	exports.is_array = is_array;
+	  		return _isArray(mixed_var) ||
+				// Allow returning true unless user has called
+				// ini_set('phpjs.objectsAsArrays', 0) to disallow objects as arrays
+				((!ini || ( // if it's not set to 0 and it's not 'off', check for objects as arrays
+				(parseInt(ini.local_value, 10) !== 0 && (!ini.local_value.toLowerCase || ini.local_value.toLowerCase() !==
+					'off')))) && (
+				(Object.prototype.toString.call(mixed_var) === '[object Object]' && _getFuncName(mixed_var.constructor) ===
+				'Object') // Most likely a literal and intended as assoc. array
+				));
+  		};
+		exports.is_array = is_array;
 
   	const is_binary = function (vr) {
 	return typeof vr === 'string'; // If it is a string of any kind, it could be binary
