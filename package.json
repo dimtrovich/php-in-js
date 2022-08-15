@@ -1,26 +1,23 @@
 {
     "name": "php-in-js",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "A simple adaptation of php functions for javascript",
-    "main": "es6.js",
-	"module": "cjs.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
+    "main": "cjs.js",
+	"module": "es6.js",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/DimitriSitchet/php-in-js.git"
+        "url": "git+https://github.com/dimtrovich/php-in-js.git"
     },
     "keywords": [
         "php",
         "pollyfil",
         "js",
-        "php-i-js"
+        "php-in-js"
     ],
     "author": "Dimitri Sitchet <devcode.dst@gmail.com>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/DimitriSitchet/php-in-js/issues"
+        "url": "https://github.com/dimtrovich/php-in-js/issues"
     },
-    "homepage": "https://github.com/DimitriSitchet/php-in-js#readme"
+    "homepage": "https://github.com/dimtrovich/php-in-js#readme"
 }
