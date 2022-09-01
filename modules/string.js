@@ -2240,7 +2240,7 @@
 			chr = '',
 			lgth = 0;
 
-		  if (!this.php_js || !this.php_js.ini || !this.php_js.ini['unicode.semantics'] || this.php_js.ini[
+		  if (!exports.php_in_js || !exports.php_in_js.ini || !exports.php_in_js.ini['unicode.semantics'] || exports.php_in_js.ini[
 			'unicode.semantics'].local_value.toLowerCase() !== 'on') {
 			return string.length;
 		  }
@@ -2695,11 +2695,11 @@
 	exports.strstr = strstr;
 
 	const strtok = function (str, tokens) {
-		this.php_js = this.php_js || {};
+		exports.php_in_js = exports.php_in_js || {};
 		  // END REDUNDANT
 		  if (tokens === undefined) {
 			tokens = str;
-			str = this.php_js.strtokleftOver;
+			str = exports.php_in_js.strtokleftOver;
 		  }
 		  if (str.length === 0) {
 			return false;
@@ -2712,7 +2712,7 @@
 			  break;
 			}
 		  }
-		  this.php_js.strtokleftOver = str.substr(i + 1);
+		  exports.php_in_js.strtokleftOver = str.substr(i + 1);
 		  return str.substring(0, i);
 	};
 	exports.strtok = strtok;
@@ -2740,10 +2740,10 @@
 		  var end = str.length;
 
 		  // BEGIN REDUNDANT
-		  this.php_js = this.php_js || {};
-		  this.php_js.ini = this.php_js.ini || {};
+		  exports.php_in_js = exports.php_in_js || {};
+		  exports.php_in_js.ini = exports.php_in_js.ini || {};
 		  // END REDUNDANT
-		  switch ((this.php_js.ini['unicode.semantics'] && this.php_js.ini['unicode.semantics'].local_value.toLowerCase())) {
+		  switch ((exports.php_in_js.ini['unicode.semantics'] && exports.php_in_js.ini['unicode.semantics'].local_value.toLowerCase())) {
 			case 'on':
 			  // Full-blown Unicode including non-Basic-Multilingual-Plane characters
 			  // strlen()

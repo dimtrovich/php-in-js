@@ -30,8 +30,8 @@
 			  if (!(err instanceof SyntaxError)) {
 				throw new Error('Unexpected error type in json_decode()');
 			  }
-			  this.php_js = this.php_js || {};
-			  this.php_js.last_error_json = 4; // usable by json_last_error()
+			  exports.php_in_js = exports.php_in_js || {};
+			  exports.php_in_js.last_error_json = 4; // usable by json_last_error()
 			  return null;
 			}
 		  }
@@ -77,8 +77,8 @@
 			return j;
 		  }
 
-		  this.php_js = this.php_js || {};
-		  this.php_js.last_error_json = 4; // usable by json_last_error()
+		  exports.php_in_js = exports.php_in_js || {};
+		  exports.php_in_js.last_error_json = 4; // usable by json_last_error()
 		  return null;
 	};
 	exports.json_decode = json_decode;
@@ -228,8 +228,8 @@
 			if (!(err instanceof SyntaxError)) {
 			  throw new Error('Unexpected error type in json_encode()');
 			}
-			this.php_js = this.php_js || {};
-			this.php_js.last_error_json = 4; // usable by json_last_error()
+			exports.php_in_js = exports.php_in_js || {};
+			exports.php_in_js.last_error_json = 4; // usable by json_last_error()
 			return null;
 		  }
 	};
@@ -244,7 +244,7 @@
 										  // but JSON functions auto-escape these, so error not possible in JavaScript
 		  JSON_ERROR_SYNTAX = 4
 		  */
-		  return this.php_js && this.php_js.last_error_json ? this.php_js.last_error_json : 0;
+		  return exports.php_in_js && exports.php_in_js.last_error_json ? exports.php_in_js.last_error_json : 0;
 	}
 	exports.json_last_error = json_last_error
 

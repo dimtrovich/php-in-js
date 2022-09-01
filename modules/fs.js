@@ -63,11 +63,11 @@
 		  };
 
 		  // BEGIN REDUNDANT
-		  this.php_js = this.php_js || {};
-		  this.php_js.ini = this.php_js.ini || {};
+		  exports.php_in_js = exports.php_in_js || {};
+		  exports.php_in_js.ini = exports.php_in_js.ini || {};
 		  // END REDUNDANT
-		  var ini = this.php_js.ini;
-		  context = context || this.php_js.default_streams_context || null;
+		  var ini = exports.php_in_js.ini;
+		  context = context || exports.php_in_js.default_streams_context || null;
 
 		  if (!flags) {
 			flags = 0;

@@ -15,14 +15,14 @@
 
 	const array = function () {
 		try {
-			this.php_js = this.php_js || {};
+			exports.php_in_js = exports.php_in_js || {};
 		  } catch (e) {
-			this.php_js = {};
+			exports.php_in_js = {};
 		  }
 
 		  var arrInst, e, __, that = this,
 			PHPJS_Array = function PHPJS_Array() {};
-		  mainArgs = arguments, p = this.php_js,
+		  mainArgs = arguments, p = exports.php_in_js,
 		  _indexOf = function(value, from, strict) {
 			var i = from || 0,
 			  nonstrict = !strict,
@@ -169,9 +169,9 @@
 					  }
 					}
 				  } else if (typeof funcname === 'string') {
-					this.php_js = this.php_js || {};
-					this.php_js.ini = this.php_js.ini || {};
-					ini = this.php_js.ini['phpjs.no-eval'];
+					exports.php_in_js = exports.php_in_js || {};
+					exports.php_in_js.ini = exports.php_in_js.ini || {};
+					ini = exports.php_in_js.ini['phpjs.no-eval'];
 					if (ini && (
 					  parseInt(ini.local_value, 10) !== 0 && (!ini.local_value.toLowerCase || ini.local_value
 						.toLowerCase() !== 'off')
@@ -2013,9 +2013,9 @@
 				}
 			  }
 			} else if (typeof funcname === 'string') {
-			  this.php_js = this.php_js || {};
-			  this.php_js.ini = this.php_js.ini || {};
-			  ini = this.php_js.ini['phpjs.no-eval'];
+			  exports.php_in_js = exports.php_in_js || {};
+			  exports.php_in_js.ini = exports.php_in_js.ini || {};
+			  ini = exports.php_in_js.ini['phpjs.no-eval'];
 			  if (ini && (
 				parseInt(ini.local_value, 10) !== 0 && (!ini.local_value.toLowerCase || ini.local_value.toLowerCase() !==
 				  'off')
@@ -2143,8 +2143,8 @@
 	exports.count = count;
 
 	const current = function (arr) {
-		this.php_js = this.php_js || {};
-		  this.php_js.pointers = this.php_js.pointers || [];
+		exports.php_in_js = exports.php_in_js || {};
+		  exports.php_in_js.pointers = exports.php_in_js.pointers || [];
 		  var indexOf = function(value) {
 			for (var i = 0, length = this.length; i < length; i++) {
 			  if (this[i] === value) {
@@ -2154,7 +2154,7 @@
 			return -1;
 		  };
 		  // END REDUNDANT
-		  var pointers = this.php_js.pointers;
+		  var pointers = exports.php_in_js.pointers;
 		  if (!pointers.indexOf) {
 			pointers.indexOf = indexOf;
 		  }
@@ -2178,8 +2178,8 @@
 	exports.current = current;
 
 	const each = function (arr) {
-		this.php_js = this.php_js || {};
-		  this.php_js.pointers = this.php_js.pointers || [];
+		exports.php_in_js = exports.php_in_js || {};
+		  exports.php_in_js.pointers = exports.php_in_js.pointers || [];
 		  var indexOf = function(value) {
 			for (var i = 0, length = this.length; i < length; i++) {
 			  if (this[i] === value) {
@@ -2189,7 +2189,7 @@
 			return -1;
 		  };
 		  // END REDUNDANT
-		  var pointers = this.php_js.pointers;
+		  var pointers = exports.php_in_js.pointers;
 		  if (!pointers.indexOf) {
 			pointers.indexOf = indexOf;
 		  }
@@ -2239,8 +2239,8 @@
 	exports.each = each;
 
 	const end = function (arr) {
-		this.php_js = this.php_js || {};
-		  this.php_js.pointers = this.php_js.pointers || [];
+		exports.php_in_js = exports.php_in_js || {};
+		  exports.php_in_js.pointers = exports.php_in_js.pointers || [];
 		  var indexOf = function(value) {
 			for (var i = 0, length = this.length; i < length; i++) {
 			  if (this[i] === value) {
@@ -2250,7 +2250,7 @@
 			return -1;
 		  };
 		  // END REDUNDANT
-		  var pointers = this.php_js.pointers;
+		  var pointers = exports.php_in_js.pointers;
 		  if (!pointers.indexOf) {
 			pointers.indexOf = indexOf;
 		  }
@@ -2305,8 +2305,8 @@
 	exports.in_array = in_array;
 
 	const key = function (arr) {
-		this.php_js = this.php_js || {};
-		  this.php_js.pointers = this.php_js.pointers || [];
+		exports.php_in_js = exports.php_in_js || {};
+		  exports.php_in_js.pointers = exports.php_in_js.pointers || [];
 		  var indexOf = function(value) {
 			for (var i = 0, length = this.length; i < length; i++) {
 			  if (this[i] === value) {
@@ -2316,7 +2316,7 @@
 			return -1;
 		  };
 		  // END REDUNDANT
-		  var pointers = this.php_js.pointers;
+		  var pointers = exports.php_in_js.pointers;
 		  if (!pointers.indexOf) {
 			pointers.indexOf = indexOf;
 		  }
@@ -2343,8 +2343,8 @@
 	exports.key = key;
 
 	const next = function (arr) {
-		this.php_js = this.php_js || {};
-		  this.php_js.pointers = this.php_js.pointers || [];
+		exports.php_in_js = exports.php_in_js || {};
+		  exports.php_in_js.pointers = exports.php_in_js.pointers || [];
 		  var indexOf = function(value) {
 			for (var i = 0, length = this.length; i < length; i++) {
 			  if (this[i] === value) {
@@ -2354,7 +2354,7 @@
 			return -1;
 		  };
 		  // END REDUNDANT
-		  var pointers = this.php_js.pointers;
+		  var pointers = exports.php_in_js.pointers;
 		  if (!pointers.indexOf) {
 			pointers.indexOf = indexOf;
 		  }
@@ -2388,8 +2388,8 @@
 	exports.pos = pos;
 
 	const prev = function (arr) {
-	this.php_js = this.php_js || {};
-		this.php_js.pointers = this.php_js.pointers || [];
+	exports.php_in_js = exports.php_in_js || {};
+		exports.php_in_js.pointers = exports.php_in_js.pointers || [];
 		var indexOf = function(value) {
 		for (var i = 0, length = this.length; i < length; i++) {
 			if (this[i] === value) {
@@ -2399,7 +2399,7 @@
 		return -1;
 		};
 		// END REDUNDANT
-		var pointers = this.php_js.pointers;
+		var pointers = exports.php_in_js.pointers;
 		if (!pointers.indexOf) {
 		pointers.indexOf = indexOf;
 		}
@@ -2463,8 +2463,8 @@
 	exports.range = range;
 
 	const reset = function (arr) {
-		this.php_js = this.php_js || {};
-		  this.php_js.pointers = this.php_js.pointers || [];
+		exports.php_in_js = exports.php_in_js || {};
+		  exports.php_in_js.pointers = exports.php_in_js.pointers || [];
 		  var indexOf = function(value) {
 			for (var i = 0, length = this.length; i < length; i++) {
 			  if (this[i] === value) {
@@ -2474,7 +2474,7 @@
 			return -1;
 		  };
 		  // END REDUNDANT
-		  var pointers = this.php_js.pointers;
+		  var pointers = exports.php_in_js.pointers;
 		  if (!pointers.indexOf) {
 			pointers.indexOf = indexOf;
 		  }
@@ -2521,10 +2521,10 @@
 		  });
 
 		  // BEGIN REDUNDANT
-		  this.php_js = this.php_js || {};
-		  this.php_js.ini = this.php_js.ini || {};
+		  exports.php_in_js = exports.php_in_js || {};
+		  exports.php_in_js.ini = exports.php_in_js.ini || {};
 		  // END REDUNDANT
-		  strictForIn = this.php_js.ini['phpjs.strictForIn'] && this.php_js.ini['phpjs.strictForIn'].local_value && this.php_js
+		  strictForIn = exports.php_in_js.ini['phpjs.strictForIn'] && exports.php_in_js.ini['phpjs.strictForIn'].local_value && exports.php_in_js
 			.ini['phpjs.strictForIn'].local_value !== 'off';
 		  populateArr = strictForIn ? inputArr : populateArr;
 
@@ -2555,10 +2555,10 @@
 		  }
 
 		  // BEGIN REDUNDANT
-		  this.php_js = this.php_js || {};
-		  this.php_js.ini = this.php_js.ini || {};
+		  exports.php_in_js = exports.php_in_js || {};
+		  exports.php_in_js.ini = exports.php_in_js.ini || {};
 		  // END REDUNDANT
-		  strictForIn = this.php_js.ini['phpjs.strictForIn'] && this.php_js.ini['phpjs.strictForIn'].local_value && this.php_js
+		  strictForIn = exports.php_in_js.ini['phpjs.strictForIn'] && exports.php_in_js.ini['phpjs.strictForIn'].local_value && exports.php_in_js
 			.ini['phpjs.strictForIn'].local_value !== 'off';
 		  populateArr = strictForIn ? inputArr : populateArr;
 
@@ -2613,10 +2613,10 @@
 		  }
 
 		  // BEGIN REDUNDANT
-		  this.php_js = this.php_js || {};
-		  this.php_js.ini = this.php_js.ini || {};
+		  exports.php_in_js = exports.php_in_js || {};
+		  exports.php_in_js.ini = exports.php_in_js.ini || {};
 		  // END REDUNDANT
-		  strictForIn = this.php_js.ini['phpjs.strictForIn'] && this.php_js.ini['phpjs.strictForIn'].local_value && this.php_js
+		  strictForIn = exports.php_in_js.ini['phpjs.strictForIn'] && exports.php_in_js.ini['phpjs.strictForIn'].local_value && exports.php_in_js
 			.ini['phpjs.strictForIn'].local_value !== 'off';
 		  populateArr = strictForIn ? inputArr : populateArr;
 
@@ -2651,10 +2651,10 @@
 		  }
 
 		  // BEGIN REDUNDANT
-		  this.php_js = this.php_js || {};
-		  this.php_js.ini = this.php_js.ini || {};
+		  exports.php_in_js = exports.php_in_js || {};
+		  exports.php_in_js.ini = exports.php_in_js.ini || {};
 		  // END REDUNDANT
-		  strictForIn = this.php_js.ini['phpjs.strictForIn'] && this.php_js.ini['phpjs.strictForIn'].local_value && this.php_js
+		  strictForIn = exports.php_in_js.ini['phpjs.strictForIn'] && exports.php_in_js.ini['phpjs.strictForIn'].local_value && exports.php_in_js
 			.ini['phpjs.strictForIn'].local_value !== 'off';
 		  populateArr = strictForIn ? inputArr : populateArr;
 

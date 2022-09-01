@@ -125,8 +125,8 @@
 			}
 		  };
 
-		  this.php_js = this.php_js || {};
-		  var phpjs = this.php_js,
+		  exports.php_in_js = exports.php_in_js || {};
+		  var phpjs = exports.php_in_js,
 			ini = phpjs.ini,
 			obs = phpjs.obs;
 		  for (i = 0; i < argc; i++) {

@@ -141,11 +141,11 @@
 			}
 
 			// BEGIN REDUNDANT
-					this.php_js = this.php_js || {};
-			this.php_js.ini = this.php_js.ini || {};
+					exports.php_in_js = exports.php_in_js || {};
+			exports.php_in_js.ini = exports.php_in_js.ini || {};
 			// END REDUNDANT
 
-	  		ini = this.php_js.ini['phpjs.objectsAsArrays'];
+	  		ini = exports.php_in_js.ini['phpjs.objectsAsArrays'];
 
 	  		return _isArray(mixed_var) ||
 				// Allow returning true unless user has called

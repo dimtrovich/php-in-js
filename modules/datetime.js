@@ -248,17 +248,17 @@
 
 	const date_parse = function (date) {
 		// BEGIN REDUNDANT
-		  this.php_js = this.php_js || {};
+		  exports.php_in_js = exports.php_in_js || {};
 		  // END REDUNDANT
 
 		  var ts,
-			warningsOffset = this.php_js.warnings ? this.php_js.warnings.length : null,
-			errorsOffset = this.php_js.errors ? this.php_js.errors.length : null;
+			warningsOffset = exports.php_in_js.warnings ? exports.php_in_js.warnings.length : null,
+			errorsOffset = exports.php_in_js.errors ? exports.php_in_js.errors.length : null;
 
 		  try {
-			this.php_js.date_parse_state = true; // Allow strtotime to return a decimal (which it normally does not)
+			exports.php_in_js.date_parse_state = true; // Allow strtotime to return a decimal (which it normally does not)
 			ts = strtotime(date);
-			this.php_js.date_parse_state = false;
+			exports.php_in_js.date_parse_state = false;
 		  } finally {
 			if (!ts) {
 			  return false;
@@ -267,13 +267,13 @@
 
 		  var dt = new Date(ts * 1000);
 
-		  var retObj = { // Grab any new warnings or errors added (not implemented yet in strtotime()); throwing warnings, notices, or errors could also be easily monitored by using 'watch' on this.php_js.latestWarning, etc. and/or calling any defined error handlers
-			warning_count: warningsOffset !== null ? this.php_js.warnings.slice(warningsOffset)
+		  var retObj = { // Grab any new warnings or errors added (not implemented yet in strtotime()); throwing warnings, notices, or errors could also be easily monitored by using 'watch' on exports.php_in_js.latestWarning, etc. and/or calling any defined error handlers
+			warning_count: warningsOffset !== null ? exports.php_in_js.warnings.slice(warningsOffset)
 			  .length : 0,
-			warnings: warningsOffset !== null ? this.php_js.warnings.slice(warningsOffset) : [],
-			error_count: errorsOffset !== null ? this.php_js.errors.slice(errorsOffset)
+			warnings: warningsOffset !== null ? exports.php_in_js.warnings.slice(warningsOffset) : [],
+			error_count: errorsOffset !== null ? exports.php_in_js.errors.slice(errorsOffset)
 			  .length : 0,
-			errors: errorsOffset !== null ? this.php_js.errors.slice(errorsOffset) : []
+			errors: errorsOffset !== null ? exports.php_in_js.errors.slice(errorsOffset) : []
 		  };
 		  retObj.year = dt.getFullYear();
 		  retObj.month = dt.getMonth() + 1;
@@ -390,7 +390,7 @@
 			throw 'idate format is one char';
 		  }
 
-		  // Fix: Need to allow date_default_timezone_set() (check for this.php_js.default_timezone and use)
+		  // Fix: Need to allow date_default_timezone_set() (check for exports.php_in_js.default_timezone and use)
 		  var date = ((typeof timestamp === 'undefined') ? new Date() : // Not provided
 			(timestamp instanceof Date) ? new Date(timestamp) : // Javascript Date()
 			new Date(timestamp * 1000) // UNIX timestamp (auto-convert to int)

@@ -94,7 +94,7 @@
 		var query, key = ['source', 'scheme', 'authority', 'userInfo', 'user', 'pass', 'host', 'port',
 			  'relative', 'path', 'directory', 'file', 'query', 'fragment'
 			],
-			ini = (this.php_js && this.php_js.ini) || {},
+			ini = (exports.php_in_js && exports.php_in_js.ini) || {},
 			mode = (ini['phpjs.parse_url.mode'] &&
 			  ini['phpjs.parse_url.mode'].local_value) || 'php',
 			parser = {
