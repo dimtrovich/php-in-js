@@ -4,6 +4,15 @@
     "description": "A simple adaptation of php functions for javascript",
     "main": "cjs.js",
 	"module": "es6.js",
+	"types": "./types/index.d.ts",
+  	"typings": "./types/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./es6.js",
+			"require": "./cjs.js",
+			"types": "./types/index.d.ts"
+		}
+	},
     "repository": {
         "type": "git",
         "url": "git+https://github.com/dimtrovich/php-in-js.git"
