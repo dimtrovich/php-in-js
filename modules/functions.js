@@ -66,9 +66,16 @@
 
 	const function_exists = function (func_name) {
 		if (typeof func_name === 'string') {
-			func_name = this.window[func_name];
-		  }
-		  return typeof func_name === 'function';
+			let func = null;
+			if (typeof window !== 'undefined') {
+			  func = window[func_name];
+			} else if (typeof globalThis !== 'undefined') {
+				func = globalThis[func_name];
+			}
+
+			func_name = !func ? exports[func_name] || null : func;
+		}
+		return typeof func_name === 'function';
 	};
 	exports.function_exists = function_exists;
 

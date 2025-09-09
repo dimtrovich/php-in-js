@@ -28,5 +28,19 @@
     "bugs": {
         "url": "https://github.com/dimtrovich/php-in-js/issues"
     },
-    "homepage": "https://github.com/dimtrovich/php-in-js#readme"
+    "homepage": "https://github.com/dimtrovich/php-in-js#readme",
+	"scripts": {
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"test:cov": "jest --coverage"
+  	},
+  	"devDependencies": {
+    	"jest": "^29.5.0"
+    },
+  	"jest": {
+    	"testEnvironment": "node",
+		"collectCoverageFrom": [
+			"modules/*.js"
+		]
+	}
 }

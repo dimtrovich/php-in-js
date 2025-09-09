@@ -6,6 +6,17 @@
  * @module Crypto
  * @description Fonctions cryptographiques
  */
+
+let utf8_encode = (str) => str
+
+if (typeof exports === 'object' && typeof module !== 'undefined') {
+	utf8_encode = require('./string').utf8_encode
+} else if (typeof define === 'function' && define.amd) {
+	// import { utf8_encode } from './string'
+} else if (typeof globalThis !== 'undefined') {
+	utf8_encode = globalThis.utf8_encode
+}
+
 (function(global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
         typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -259,7 +270,7 @@
 		  var A, B, C, D, E;
 		  var temp;
 
-		  str = this.utf8_encode(str);
+		  str = utf8_encode(str);
 		  var str_len = str.length;
 
 		  var word_array = [];

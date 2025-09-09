@@ -21,8 +21,8 @@
 		  }
 
 		  var arrInst, e, __, that = this,
-			PHPJS_Array = function PHPJS_Array() {};
-		  mainArgs = arguments, p = exports.php_in_js,
+			PHPJS_Array = function PHPJS_Array() {},
+			mainArgs = arguments, p = exports.php_in_js,
 		  _indexOf = function(value, from, strict) {
 			var i = from || 0,
 			  nonstrict = !strict,
@@ -493,7 +493,7 @@
 			}
 		  }
 
-		  return retArr;
+		  return Object.values(retArr);
 	};
 	exports.array_diff = array_diff
 
@@ -648,7 +648,7 @@
 			}
 		}
 
-		return retObj;
+		return Object.values(retObj);
 	};
 	exports.array_filter = array_filter
 
@@ -1958,7 +1958,7 @@
 			}
 		  }
 
-		  return tmp_arr2;
+		  return Object.values(tmp_arr2);
 	};
 	exports.array_unique = array_unique;
 

@@ -38,7 +38,7 @@
 			}
 		  }
 
-		  return retObj;
+		  return Object.values(retObj);
 	};
 	exports.preg_grep = preg_grep;
 

@@ -22,7 +22,7 @@
 			See http://www.JSON.org/js.html
 		  */
 
-		  var json = this.window.JSON;
+		  const json = JSON;
 		  if (typeof json === 'object' && typeof json.parse === 'function') {
 			try {
 			  return json.parse(str_json);
@@ -91,7 +91,7 @@
 			NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
 			See http://www.JSON.org/js.html
 		  */
-		  var retVal, json = this.window.JSON;
+		  var retVal, json = JSON;
 		  try {
 			if (typeof json === 'object' && typeof json.stringify === 'function') {
 			  retVal = json.stringify(mixed_val); // Errors will not be caught here if our own equivalent to resource
