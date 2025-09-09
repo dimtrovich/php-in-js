@@ -1,5 +1,5 @@
 /*!
- * PHP In JS v1.0 (https://github.com/DimitriSitchet/php-in-js)
+ * PHP In JS v1.0 (https://github.com/dimtrovich/php-in-js)
  * Copyright 2021 Dimtrov Lab's | Dimitri Sitchet Tomkeu
  * Licensed under MIT (https://opensource.org/licences/mit)
  *
